@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://crms1dwt0spwr"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_fj3cf"]
+[ext_resource type="PackedScene" uid="uid://xu8sgaanyenb" path="res://Scenes/ichi.tscn" id="2_sjq3o"]
+[ext_resource type="PackedScene" uid="uid://cndg44tcv2251" path="res://Scenes/simple_shoot_launcher.tscn" id="3_hdmq8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4mpc"]
+radius = 23.0
+
+[node name="Player" type="CharacterBody2D"]
+platform_floor_layers = 0
+script = ExtResource("1_fj3cf")
+SPEED = 20000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n4mpc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Ichi" parent="." instance=ExtResource("2_sjq3o")]
+scale = Vector2(0.04, 0.04)
+
+[node name="Simple_Shoot_Launcher" parent="." instance=ExtResource("3_hdmq8")]

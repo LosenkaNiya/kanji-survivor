@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cndg44tcv2251"]
+
+[ext_resource type="PackedScene" uid="uid://dxyyk7qnnt70o" path="res://Scenes/simple_shoot_projectile.tscn" id="1_3hupm"]
+[ext_resource type="Script" path="res://Scripts/simple_shoot_launcher.gd" id="1_3n5jg"]
+
+[node name="Simple_Shoot_Launcher" type="Node2D"]
+script = ExtResource("1_3n5jg")
+PROJECTILE = ExtResource("1_3hupm")
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(22, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="CoolTime" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="CoolTime" to="." method="_on_cool_time_timeout"]
